@@ -1,10 +1,6 @@
 <?php
 
 namespace profitapi {
-
-    include_once "profitapi_data.php";
-    include_once "profitapi_requests.php";
-
     use Exception;
     use requests\request;
 
@@ -50,14 +46,11 @@ namespace profitapi {
 
 
             $response = curl_exec($con);
-            echo curl_getinfo($con, CURLINFO_HTTP_CODE) . "<br>";
-            echo $url;
             curl_close($con);
 
             return $response;
         }
     }
-
     class auth_header extends request_component
     {
         const BASIC_AUTH_PATTERN = "/(.*.)(\@)(.*)(\...*):(..*)/";
@@ -103,12 +96,10 @@ namespace profitapi {
             return $headers;
         }
     }
-
     abstract class request_component
     {
         abstract function componentResult();
     }
-
     class auth_type
     {
         const API_KEY = "apiKey";
@@ -122,5 +113,61 @@ namespace profitapi {
 
 }
 
+namespace requests {
+    use Exception;
 
+    class sale_invoice_create_request extends request
+    {
+        /**
+         * Default constructor
+         * @param $invoice_data array
+         * @throws Exception when required fields are missing
+         */
+        public function __construct($invoice_data)
+        {
+            // if (!$invoice_data->validate())
+            //   throw new Exception("Invalid data supplied");
 
+            parent::__construct(null, json_encode($invoice_data));
+        }
+
+        function getContext()
+        {
+            return "sales/invoices";
+        }
+    }
+    abstract class request
+    {
+        private $header_array;
+        private $content;
+
+        /**
+         * request constructor.
+         * @param $header_array array of strings that represent headers (optional)
+         * @param $content string of contents (optional)
+         */
+        public function __construct($header_array = null, $content = null)
+        {
+            $this->header_array = $header_array;
+            $this->content = $content;
+        }
+
+        /**
+         * @return array of strings representing header fields
+         */
+        public function getHeaderArray()
+        {
+            return $this->header_array;
+        }
+
+        /**
+         * @return string represents HTTP content
+         */
+        public function getContent()
+        {
+            return $this->content;
+        }
+
+        abstract function getContext();
+    }
+}
