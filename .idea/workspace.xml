@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5d15523b-2d8f-4990-aa73-daa63def3b42" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
+  <component name="ProjectId" id="1kZ89pBSClI8rYRKPzw6YkAS5aE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="settings.php.quality.tools" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="profitapi.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/profitapi.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.profitapi.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d15523b-2d8f-4990-aa73-daa63def3b42" name="Default Changelist" comment="" />
+      <created>1605896605357</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605896605357</updated>
+      <workItem from="1605896606682" duration="2242000" />
+      <workItem from="1605949416582" duration="10047000" />
+      <workItem from="1605962799211" duration="10261000" />
+      <workItem from="1606042304372" duration="597000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="538" y="181" width="824" height="684" key="#CLI_Interpreters" timestamp="1605953485538">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="538" y="181" width="824" height="684" key="#CLI_Interpreters/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605953485538" />
+    <state x="933" y="120" width="685" height="895" key="#PHP" timestamp="1605953542446">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="933" y="120" width="685" height="895" key="#PHP/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605953542446" />
+    <state x="606" y="315" width="698" height="416" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605997678466">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="606" y="315" width="698" height="416" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605997678466" />
+    <state x="745" y="195" width="419" height="657" key="#com.intellij.ide.util.MemberChooser" timestamp="1605998905076">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="745" y="195" width="419" height="657" key="#com.intellij.ide.util.MemberChooser/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605998905076" />
+    <state x="693" y="281" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605997333319">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="693" y="281" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605997333319" />
+    <state x="737" y="281" width="424" height="484" key="FileChooserDialogImpl" timestamp="1605953475094">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="737" y="281" width="424" height="484" key="FileChooserDialogImpl/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605953475094" />
+    <state width="1874" height="307" key="GridCell.Tab.0.bottom" timestamp="1605962789002">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state width="1874" height="307" key="GridCell.Tab.0.bottom/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962789002" />
+    <state width="1874" height="307" key="GridCell.Tab.0.center" timestamp="1605962789002">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state width="1874" height="307" key="GridCell.Tab.0.center/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962789002" />
+    <state width="1874" height="307" key="GridCell.Tab.0.left" timestamp="1605962789002">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state width="1874" height="307" key="GridCell.Tab.0.left/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962789002" />
+    <state width="1874" height="307" key="GridCell.Tab.0.right" timestamp="1605962789002">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state width="1874" height="307" key="GridCell.Tab.0.right/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962789002" />
+    <state width="1874" height="307" key="GridCell.Tab.1.bottom" timestamp="1605962789002">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state width="1874" height="307" key="GridCell.Tab.1.bottom/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962789002" />
+    <state width="1874" height="307" key="GridCell.Tab.1.center" timestamp="1605962789002">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state width="1874" height="307" key="GridCell.Tab.1.center/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962789002" />
+    <state width="1874" height="307" key="GridCell.Tab.1.left" timestamp="1605962789002">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state width="1874" height="307" key="GridCell.Tab.1.left/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962789002" />
+    <state width="1874" height="307" key="GridCell.Tab.1.right" timestamp="1605962789002">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state width="1874" height="307" key="GridCell.Tab.1.right/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962789002" />
+    <state x="755" y="445" width="399" height="157" key="NewPhpFileDialog" timestamp="1605997721549">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="755" y="445" width="399" height="157" key="NewPhpFileDialog/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605997721549" />
+    <state x="2132" y="118" key="SettingsEditor" timestamp="1605962772393">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2132" y="118" key="SettingsEditor/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605962772393" />
+    <state x="50" y="27" width="1809" height="993" key="com.jetbrains.php.config.phpInfo.PhpInfo.PhpInfoDialog" timestamp="1605956430715">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="50" y="27" width="1809" height="993" key="com.jetbrains.php.config.phpInfo.PhpInfo.PhpInfoDialog/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605956430715" />
+    <state x="623" y="244" width="672" height="678" key="search.everywhere.popup" timestamp="1605952286719">
+      <screen x="0" y="27" width="1920" height="993" />
+    </state>
+    <state x="623" y="244" width="672" height="678" key="search.everywhere.popup/0.27.1920.993/1920.0.1920.1080@0.27.1920.993" timestamp="1605952286719" />
+  </component>
+</project>
