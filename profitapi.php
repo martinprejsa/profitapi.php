@@ -1,4 +1,9 @@
-<?php namespace profitapi {
+<?php
+
+namespace profitapi {
+
+    include_once "profitapi_data.php";
+    include_once "profitapi_requests.php";
 
     use Exception;
     use requests\request;
