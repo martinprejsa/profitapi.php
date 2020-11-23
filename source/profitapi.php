@@ -2,7 +2,7 @@
 
 namespace profitapi {
     use Exception;
-    use requests\request;
+    use profit_requests\request;
 
     class communicator
     {
@@ -23,7 +23,7 @@ namespace profitapi {
         /**
          * Used to communicate with api.
          * @param $request request Request to be sent timeout
-         * @return boolean TRUE on success FALSE otherwise
+         * @return integer response code
          */
         public function request($request)
         {
@@ -44,11 +44,10 @@ namespace profitapi {
             curl_setopt($con, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($con, CURLOPT_HTTPHEADER, $headers);
 
-
-            $response = curl_exec($con);
+            curl_exec($con);
+            $code = curl_getinfo($con, CURLINFO_RESPONSE_CODE);
             curl_close($con);
-
-            return $response;
+            return $code;
         }
     }
     class auth_header extends request_component
@@ -113,9 +112,9 @@ namespace profitapi {
 
 }
 
-namespace requests {
+namespace profit_requests {
 
-    use data\invoice_data;
+    use profit_data\invoice_data;
     use Exception;
     use profitapi\request_type;
 
@@ -130,7 +129,6 @@ namespace requests {
         {
             // if (!$invoice_data->validate())
             //   throw new Exception("Invalid data supplied");
-
             parent::__construct(request_type::POST_JSON,null, json_encode($invoice_data->getData()));
         }
 
@@ -187,7 +185,10 @@ namespace requests {
     }
 }
 
-namespace data {
+namespace profit_data {
+
+    use profit_requests\request;
+
     const GUID_REGEX_PATTERN = "\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b";
 
     function verifyGUID($guid) {
@@ -198,16 +199,30 @@ namespace data {
     /* DOCUMENTATION: https://doc.profit365.eu/developers/en/api/doc/sales/invoices#section4-row */
     class invoice_row_data extends data {
 
-        public function __construct($quantity, $price)
+
+        /**
+         * invoice_row_data constructor.
+         * @param $name string name of the item
+         * @param $price double price of the item
+         * @param $quantity integer quantity of the items
+         */
+        public function __construct($name, $price, $quantity = 1)
         {
-            $data = array();
-            $data["quantity"] = $quantity;
-            $data["price"] = $price;
-
-
-            parent::__construct($data);
+            parent::__construct();
+            $this->name($name);
+            $this->price($price);
+            $this->quantity($quantity);
         }
 
+        public function quantity($var) {
+            $this->data["quantity"] = $var;
+        }
+        public function price($var) {
+            $this->data["price"] = $var;
+        }
+        public function priceBrutto($var) {
+            $this->data["priceBrutto"] = $var;
+        }
 
         public function itemId($var) {
             $this->data["itemId"] = $var;
@@ -226,28 +241,24 @@ namespace data {
     }
     /* DOCUMENTATION: https://doc.profit365.eu/developers/en/api/doc/sales/invoices#section4 */
     class invoice_data extends data {
+
         /**
-         * @param $dateCreated string ISO8601
-         * @param $invoice_row_data array of rows
-         * @param $ordnerId string GUID of ordner this invoice belongs to
-         * @param $warehouseId string GUID of warehouse where this invoice belongs to
+         * invoice_data constructor.
+         * @param $date string datetime formatted in ISO8601 format
+         * @param $rows array of row data
          */
-        public function __construct($dateCreated, $invoice_row_data, $ordnerId = null, $warehouseId = null)
+        public function __construct($date, $rows)
         {
-            $data = array();
-            $data["dateCreated"] = $dateCreated;
-            $data["rows"] = $invoice_row_data;
-
-            if($ordnerId != null)
-                $data["ordnerId"] = $ordnerId;
-            if($warehouseId != null)
-                $data["warehouseId"] = $warehouseId;
-
-            parent::__construct($data);
+            parent::__construct();
+            $this->dateCreated($date);
+            $this->rows($rows);
         }
 
         public function ordnerId($var) {
             $this->data["ordnerId"] = $var;
+        }
+        public function dateCreated($var) {
+            $this->data["dateCreated"] = $var;
         }
         public function warehouseId($var) {
             $this->data["warehouseId"] = $var;
@@ -339,8 +350,7 @@ namespace data {
          * data constructor.
          * @param $data
          */
-        public function __construct($data = array())
-        {
+        public function __construct($data = array()){
             $this->data = $data;
         }
 
@@ -351,10 +361,6 @@ namespace data {
         {
             return $this->data;
         }
-
-
-
-
     }
 
 }
