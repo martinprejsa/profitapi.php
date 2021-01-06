@@ -195,7 +195,6 @@ namespace profit_data {
         return preg_match($guid, GUID_REGEX_PATTERN);
     }
 
-
     /* DOCUMENTATION: https://doc.profit365.eu/developers/en/api/doc/sales/invoices#section4-row */
     class invoice_row_data extends data {
 
@@ -209,34 +208,10 @@ namespace profit_data {
         public function __construct($name, $price, $quantity = 1)
         {
             parent::__construct();
-            $this->name($name);
-            $this->price($price);
-            $this->quantity($quantity);
+            $this->set("name", $name);
+            $this->set("price", $price);
+            $this->set("quantity", $quantity);
         }
-
-        public function quantity($var) {
-            $this->data["quantity"] = $var;
-        }
-        public function price($var) {
-            $this->data["price"] = $var;
-        }
-        public function priceBrutto($var) {
-            $this->data["priceBrutto"] = $var;
-        }
-
-        public function itemId($var) {
-            $this->data["itemId"] = $var;
-        }
-        public function code($var) {
-            $this->data["code"] = $var;
-        }
-        public function name($var) {
-            $this->data["name"] = $var;
-        }
-        public function vatParagraphID($var) {
-            $this->data["vatParagraphID"] = $var;
-        }
-
 
     }
     /* DOCUMENTATION: https://doc.profit365.eu/developers/en/api/doc/sales/invoices#section4 */
@@ -250,97 +225,10 @@ namespace profit_data {
         public function __construct($date, $rows)
         {
             parent::__construct();
-            $this->dateCreated($date);
-            $this->rows($rows);
+            $this->set("date", $date);
+            $this->set("rows", $rows);
         }
 
-        public function ordnerId($var) {
-            $this->data["ordnerId"] = $var;
-        }
-        public function dateCreated($var) {
-            $this->data["dateCreated"] = $var;
-        }
-        public function warehouseId($var) {
-            $this->data["warehouseId"] = $var;
-        }
-        public function rows($var) {
-            $this->data["rows"] = $var;
-        }
-        public function recordNumber($var) {
-            $this->data["recordNumber"] = $var;
-        }
-        public function tags($var) {
-            $this->data["tags"] = $var;
-        }
-        public function partnerId($var) {
-            $this->data["partnerId"] = $var;
-        }
-        public function partnerDetail($var) {
-            $this->data["partnerDetail"] = $var;
-        }
-        public function partnerAddress($var) {
-            $this->data["partnerAddress"] = $var;
-        }
-        public function deliveryTypeId($var) {
-            $this->data["paymentTypeId"] = $var;
-        }
-        public function paymentTypeId($var) {
-            $this->data["ordnerId"] = $var;
-        }
-        public function bankAccountId($var) {
-            $this->data["bankAccountId"] = $var;
-        }
-        public function symbolVariable($var) {
-            $this->data["symbolVariable"] = $var;
-        }
-        public function symbolConstant($var) {
-            $this->data["symbolConstant"] = $var;
-        }
-        public function symbolSpecific($var) {
-            $this->data["symbolSpecific"] = $var;
-        }
-        public function dateAccounting($var) {
-            $this->data["dateAccounting"] = $var;
-        }
-        public function dateDelivery($var) {
-            $this->data["dateDelivery"] = $var;
-        }
-        public function periodId($var) {
-            $this->data["periodId"] = $var;
-        }
-        public function dateValidTo($var) {
-            $this->data["dateValidTo"] = $var;
-        }
-        public function commentAboveItems($var) {
-            $this->data["commentAboveItems"] = $var;
-        }
-        public function commentBelowItems($var) {
-            $this->data["commentBelowItems"] = $var;
-        }
-        public function vatParagraphID($var) {
-            $this->data["vatParagraphID"] = $var;
-        }
-        public function bonusPercent($var) {
-            $this->data["bonusPercent"] = $var;
-        }
-        public function orderRecordNo($var) {
-            $this->data["orderRecordNo"] = $var;
-        }
-        public function warehouseRecordNo($var) {
-            $this->data["warehouseRecordNo"] = $var;
-        }
-        public function costCenterId($var) {
-            $this->data["costCenterId"] = $var;
-        }
-        public function costUnitId($var) {
-            $this->data["costUnitId"] = $var;
-        }
-        public function personId($var) {
-            $this->data["personId"] = $var;
-        }
-        public function projectId($var) {
-            $this->data["projectId"] = $var;
-        }
     }
 
     abstract class data {
@@ -360,6 +248,10 @@ namespace profit_data {
         public function getData()
         {
             return $this->data;
+        }
+
+        public function set($key, $val) {
+            $this->$this->data[$key] = $val;
         }
     }
 
