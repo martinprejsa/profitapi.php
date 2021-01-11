@@ -109,8 +109,6 @@ namespace requests {
 
         function getContext()
         {
-            // https://jantexsro.profit365.eu/tools/reports/report.aspx?ID=8aa93c05-b52d-4aeb-a780-652c5e06fe26&RecordNumbers=20200001VYF&RecordID=&out=pdf&action=open&ft=process&mode=preview
-            return "https://api.profit365.eu/1.6/reports/3051?output=pdf&3e14784e-0391-4449-b1c1-59b5a2eec036";
             // return "reports/$this->reportId" . "?output=$this->output" . "&recordID=$this->invoiceId";
         }
     }
