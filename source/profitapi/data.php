@@ -7,7 +7,7 @@ namespace data {
         return preg_match($guid, GUID_REGEX_PATTERN);
     }
 
-    abstract class payload {
+    class payload {
         protected $data;
 
         /**
@@ -27,13 +27,12 @@ namespace data {
         }
 
         public function set($key, $val) {
-            $this->$this->data[$key] = $val;
+            $this->data[$key] = $val;
         }
     }
 
     /* DOCUMENTATION: https://doc.profit365.eu/developers/en/api/doc/sales/invoices#section4-row */
     class invoice_row_payload extends payload {
-
 
         /**
          * invoice_row_data constructor.
