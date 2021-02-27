@@ -2,7 +2,6 @@
 
 namespace requests {
 
-    use Exception;
     use data\invoice_payload;
 
     abstract class request_component
@@ -36,7 +35,6 @@ namespace requests {
         {
             return $this->type;
         }
-
 
         /**
          * @return array of strings representing header fields
@@ -75,7 +73,7 @@ namespace requests {
         {
             parent::__construct(request_type::POST,
                 ["Content-Type: application/json"],
-                json_encode($invoice_data->getData())
+                json_encode($invoice_data->getContent())
             );
         }
 
@@ -85,7 +83,8 @@ namespace requests {
         }
     }
 
-    class sale_invoice_printout_request extends request {
+    class sale_invoice_printout_request extends request
+    {
 
         private $reportId;
         private $invoiceId;
@@ -93,26 +92,23 @@ namespace requests {
         /**
          * sale_invoice_printout_request constructor
          * @param $reportId string
-         * @param $output string default pdf
          * @param $invoiceId string
          */
-        public function __construct($reportId, $invoiceId, $output = "pdf")
+        public function __construct($reportId, $invoiceId)
         {
             parent::__construct(request_type::GET, ["Accept: application/pdf"]);
             $this->reportId = $reportId;
             $this->invoiceId = $invoiceId;
-            $this->output =  $output;
-
-            echo $this->getContext(). "\n";
+            $this->output = "pdf";
         }
-
 
         function getContext()
         {
-            // return "reports/$this->reportId" . "?output=$this->output" . "&recordID=$this->invoiceId";
+            return "reports/$this->reportId" . "?output=$this->output" . "&recordID=$this->invoiceId";
         }
     }
-    class sale_invoice_list_request extends request {
+    class sale_invoice_list_request extends request
+    {
         private $page;
 
         /**
@@ -125,12 +121,9 @@ namespace requests {
             $this->page = $page;
         }
 
-
         function getContext()
         {
             return "sales/invoices/$this->page";
         }
     }
-
-
 }

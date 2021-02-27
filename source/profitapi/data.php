@@ -1,39 +1,36 @@
 <?php
 namespace data {
 
-    const GUID_REGEX_PATTERN = "\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b";
-
-    function verifyGUID($guid) {
-        return preg_match($guid, GUID_REGEX_PATTERN);
-    }
-
-    class payload {
-        protected $data;
+    class payload
+    {
+        protected $content;
 
         /**
          * data constructor.
          * @param $data
          */
-        public function __construct($data = array()){
-            $this->data = $data;
+        public function __construct($data = array())
+        {
+            $this->content = $data;
         }
 
         /**
          * @return mixed
          */
-        public function getData()
+        public function getContent()
         {
-            return $this->data;
+            return $this->content;
         }
 
-        public function set($key, $val) {
-            $this->data[$key] = $val;
+        public function set($key, $val)
+        {
+            $this->content[$key] = $val;
         }
     }
 
     /* DOCUMENTATION: https://doc.profit365.eu/developers/en/api/doc/sales/invoices#section4-row */
-    class invoice_row_payload extends payload {
-
+    class invoice_row_payload extends payload
+    {
         /**
          * invoice_row_data constructor.
          * @param $name string name of the item
@@ -50,8 +47,8 @@ namespace data {
 
     }
     /* DOCUMENTATION: https://doc.profit365.eu/developers/en/api/doc/sales/invoices#section4 */
-    class invoice_payload extends payload {
-
+    class invoice_payload extends payload
+    {
         /**
          * invoice_data constructor.
          * @param $date string datetime formatted in ISO8601 format

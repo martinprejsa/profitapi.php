@@ -12,7 +12,7 @@ namespace profitapi {
     use requests\request_type;
     use data\payload;
 
-     function isJson($string) {
+    function isJson($string) {
         json_decode($string);
         return (json_last_error() == JSON_ERROR_NONE);
     }
@@ -23,6 +23,7 @@ namespace profitapi {
         const URL = "https://api.profit365.eu";
 
         private $auth_header;
+        public $lastResult;
 
         /**
          * Default constructor.
@@ -34,9 +35,9 @@ namespace profitapi {
         }
 
         /**
-         * Used to communicate with api.
+         * Used to communicate with api. Result of this action can be found at communicator.lastResult
          * @param $request request Request to be sent timeout
-         * @return mixed response json handled as data/payload type, or the whole response if not json
+         * @return integer HTTP response code
          */
         public function request($request)
         {
@@ -61,12 +62,15 @@ namespace profitapi {
 
             $response = curl_exec($con);
             $code = curl_getinfo($con, CURLINFO_RESPONSE_CODE);
+
             curl_close($con);
 
             if(isJson($response))
-                return new payload(json_decode($response));
+                $this->lastResult =  new payload(json_decode($response));
             else
-                return $response;
+                $this->lastResult = $response;
+
+            return $code;
         }
     }
 
@@ -99,9 +103,9 @@ namespace profitapi {
          * @param $client_secret string
          * @param $client_id string
          * @param $company_id string default null
-         * @param $base64_key bool default false
+         * @param $base64_key bool default false, set to true if auth_key parameter is in base64 already
          *
-         * @throws Exception
+         * @throws Exception when invalid non base64 auth_key is passed or auth_type is invalid
          */
         public function __construct($auth_type, $auth_key, $client_secret, $client_id, $company_id = null, $base64_key = false)
         {
@@ -138,6 +142,3 @@ namespace profitapi {
     }
 
 }
-
-
-
