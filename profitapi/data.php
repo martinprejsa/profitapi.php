@@ -1,5 +1,5 @@
 <?php
-namespace data {
+namespace profitapi {
 
     class payload
     {

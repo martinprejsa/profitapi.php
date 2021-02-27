@@ -1,16 +1,7 @@
 <?php
 
 namespace profitapi {
-
-    include_once("requests.php");
-    include_once("data.php");
-
     use Exception;
-
-    use requests\request;
-    use requests\request_component;
-    use requests\request_type;
-    use data\payload;
 
     function isJson($string) {
         json_decode($string);

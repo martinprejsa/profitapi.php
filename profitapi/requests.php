@@ -1,6 +1,6 @@
 <?php
 
-namespace requests {
+namespace profitapi {
 
     use data\invoice_payload;
 

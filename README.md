@@ -7,17 +7,20 @@ PHP api made for interacting with the Profit365 online accounting application. C
 - Downloading invoice printouts
 
 # Usage
+
 ```php
 <?php
 
-use data\invoice_payload;
-use data\invoice_row_payload;
+include_once "profitapi/profitapi.php";
+
 use profitapi\auth_header;
 use profitapi\auth_type;
 use profitapi\communicator;
-use requests\sale_invoice_create_request;
-use requests\sale_invoice_list_request;
-use requests\sale_invoice_printout_request;
+use profitapi\invoice_payload;
+use profitapi\invoice_row_payload;
+use profitapi\sale_invoice_create_request;
+use profitapi\sale_invoice_list_request;
+use profitapi\sale_invoice_printout_request;
 
 $comms = new communicator(new auth_header(
     auth_type::BASIC,
