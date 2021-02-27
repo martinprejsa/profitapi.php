@@ -2,7 +2,7 @@
 
 namespace profitapi {
 
-    use data\invoice_payload;
+    use profitapi\invoice_payload;
 
     abstract class request_component
     {

@@ -18,6 +18,7 @@ use profitapi\auth_type;
 use profitapi\communicator;
 use profitapi\invoice_payload;
 use profitapi\invoice_row_payload;
+use profitapi\payload;
 use profitapi\sale_invoice_create_request;
 use profitapi\sale_invoice_list_request;
 use profitapi\sale_invoice_printout_request;
@@ -38,7 +39,13 @@ if ($comms->request($request) != 200) {
     return;
 }
 
-$invoices = $comms->lastResult;
+if(!($comms->lastResult instanceof payload))
+{
+    echo "Invalid result type";
+    return;
+}
+
+$invoices = $comms->lastResult->getContent();
 
 $invoiceObject = $invoices[0];
 
@@ -53,11 +60,9 @@ if ( $comms->request($request) != 200) {
     return;
 }
 
-
 fwrite($handle, $comms->lastResult);
 fflush($handle);
 fclose($handle);
-
 // Example end
 
 // Example create an invoice
@@ -78,4 +83,6 @@ if($comms->request($request) != 200) {
 } else {
     echo "Created new invoice";
 }
+
+// Example end
 ```
